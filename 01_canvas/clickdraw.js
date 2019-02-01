@@ -9,7 +9,6 @@ var c = document.getElementById('slate');
 var ctx = c.getContext('2d');;
 
 var clear = document.getElementById('clear');
-//preventDefault: prevents the default or expected event from occuring.
 clear.addEventListener('click', function() {
   ctx.clearRect(0,0,500,500);
 });
@@ -44,3 +43,5 @@ c.addEventListener('click', function(event) {
     ctx.fill();
   }
 });
+
+//preventDefault: prevents the default or expected event from occuring.
