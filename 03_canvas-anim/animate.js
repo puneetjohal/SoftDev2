@@ -1,5 +1,7 @@
-/*Team Meme Machine - Puneet and Addison
- */
+//Team Meme Machine - Addison Huang and Puneet Johal
+//SoftDev2 pd8
+//K03 -- They lock us in the tower whenever we get caught ...which is often
+//2019-02-04
 
 var c = document.getElementById("playground"); //canvas
 var ctx= c.getContext("2d");
@@ -8,7 +10,7 @@ var requestID;
 var radius = 0; //radius of the circle
 var dotButton = document.getElementById("circle");
 var stopButton = document.getElementById("stop");
-
+var animation = false; //true = animation is occuring
 
 var clear = function(e) {
     ctx.clearRect(0,0,c.width,c.height);
@@ -42,5 +44,22 @@ var stopIt = function(){
     window.cancelAnimationFrame(requestID);
 };
 
-dotButton.addEventListener("click", drawDot)
-stopButton.addEventListener("click", stopIt)
+dotButton.addEventListener("click", function(event){
+    if (animation) {
+      event.preventDefault();
+    }
+    else {
+      animation = true;
+      drawDot();
+    }
+});
+
+stopButton.addEventListener("click", function(event){
+    if (!animation) {
+      event.preventDefault();
+    }
+    else {
+      animation = false;
+      stopIt();
+    }
+});
