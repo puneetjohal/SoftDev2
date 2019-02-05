@@ -47,6 +47,7 @@ var stopIt = function(){
 dotButton.addEventListener("click", function(event){
     if (animation) {
       event.preventDefault();
+      console.log('Blocked by preventDefault');
     }
     else {
       animation = true;
@@ -57,6 +58,7 @@ dotButton.addEventListener("click", function(event){
 stopButton.addEventListener("click", function(event){
     if (!animation) {
       event.preventDefault();
+      console.log('Blocked by preventDefault');
     }
     else {
       animation = false;
