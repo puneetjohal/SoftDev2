@@ -16,6 +16,6 @@ def restaurantsInZip(zip):
     print(collection.find({"address.zipcode":zip}))
 
 def restaurantsInZipWithGrade(zip,grade):
-    print(collection.find($and))
+    print(collection.find($and: [{"address.zipcode":zip} , {"grade":grade}]))
 
 def restaurantsInZipWithScoreBelow(zip,threshold):
