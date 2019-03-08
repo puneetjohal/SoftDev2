@@ -10,7 +10,8 @@ db = connection.data
 collection = db.restaurant
 
 def restaurantsInBorough(borough):
-    print(collection.find({"borough":borough}))
+    for rest in collection.find({"borough":borough}):
+        print(rest)
 
 def restaurantsInZip(zip):
     print(collection.find({"address.zipcode":zip}))
