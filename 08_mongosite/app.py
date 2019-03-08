@@ -1,3 +1,8 @@
+#Team MongoMadness - Puneet Johal, Wei Wen Zhou, Stefan Tan
+#SoftDev2 pd8
+#K08 -- Ay Mon, Go Git It From Yer Flask
+#2019-03-07
+
 from flask import Flask, render_template, request, session, url_for, redirect, flash
 import os
 import pymongo
@@ -40,7 +45,7 @@ def connect():
       #  flash("Not a valid ip address to connect to")
        # print("Not a valid ip address to connect to")
 
-    return redirect(url_for("index"))
+    return render_template("index.html")
 
 @app.route("/searchName", methods=['POST'])
 def queryName():
@@ -52,7 +57,7 @@ def queryName():
 @app.route("/searchYear", methods=['POST'])
 def queryYear():
     results = []
-    for doc in collection.find( {"year": request.form['year']} ):
+    for doc in collection.find( {"year": int(request.form['year'])} ):
         results.append(doc)
     return render_template("index.html", movies=results)
 
