@@ -37,6 +37,7 @@ pic.addEventListener( 'click', function(e) {
 var button = document.getElementById("but_clear");
 
 button.addEventListener( 'click', function() {
-  pic.selectAll("*").remove();
+  pic.innerHTML = "";
+  isClean = true;
   console.log("cleared")
 });
