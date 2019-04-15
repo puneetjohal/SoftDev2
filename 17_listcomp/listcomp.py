@@ -100,6 +100,6 @@ def transposeLoopy(m):
 print(transposeLoopy(testMatrix))
 
 #7b
-# def transposeListcompy(m):
-#     return [[] for c in row]
-# print(transposeListcompy(testMatrix))
+def transposeListcompy(m):
+    return [[row[c] for row in m] for c in range(len(m[0]))]
+print(transposeListcompy(testMatrix))
