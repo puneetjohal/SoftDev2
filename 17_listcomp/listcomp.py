@@ -24,14 +24,13 @@ twoB = [x*10+7 for x in range(5)]
 print(twoB)
 
 #3a
-cheat = '000012024'
 threeA = []
-for c in cheat:
-    threeA.append(int(c))
+for i in range(9):
+    threeA.append((i%3) * (i//3))
 print(threeA)
 
 #3b
-threeB = [int(c) for c in cheat]
+threeB = [(x%3) * (x//3) for x in range(9)]
 print(threeB)
 
 #6a
@@ -85,9 +84,22 @@ fiveB = [i for i in range(2,101) if len(divisorsLoopy(i)) == 2]
 print(fiveB)
 
 #7a
+testMatrix = [[1,2,3],[4,5,6],[7,8,9]]
+# 1  2  3       1  4  7
+# 4  5  6  -->  2  5  8
+# 7  8  9       3  6  9
+
 def transposeLoopy(m):
-    return 1
+    retMatrix = []
+    for i in range(len(m[0])):
+        retMatrix.append([])
+    for row in m:
+        for c in range(len(row)):
+            retMatrix[c].append(row[c])
+    return retMatrix
+print(transposeLoopy(testMatrix))
 
 #7b
-def transposeListcompy(m):
-    return 1
+# def transposeListcompy(m):
+#     return [[] for c in row]
+# print(transposeListcompy(testMatrix))
